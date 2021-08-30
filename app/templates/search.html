@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Búsqueda</h2>
+
+  <form method="get" action="/search">
+    <label for="q">Escribe un término</label>
+    <input type="text" name="q">
+    <button type="submit">Cargar</button>
+  </form>
+
+  {% if query %}
+    {% if results %}
+      <h3>Resultados para {{query}}</h3>
+
+      {% for image_link in results %}
+        <img src="{{image_link}}" />
+      {% endfor %}
+
+    {% else %}
+      <h3>No existieron resultados para {{query}}</h3>
+    {% endif %}
+  {% endif %}
+{% endblock %}

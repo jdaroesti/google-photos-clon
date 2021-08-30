@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  {% if successful_upload %}
+    <p>Carga exitosa</p>
+    <p>Si quieres cargar otra imagen da click <a href="/upload">aquí</a>
+  {% else %}
+    <h2>Carga una imagen</h2>
+
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+      <label for="picture">Selecciona una imagen</label>
+      <input type="file" name="picture" accept="image/*">
+      <button type="submit">Cargar</button>
+    </form>
+  {% endif %}
+{% endblock %}
+
